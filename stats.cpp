@@ -9,7 +9,7 @@ float avg(const std::vector<float>& numbers) {
     return sum / numbers.size();
 }
 
-float min(const std::vector<float)& numbers){
+float min(const std::vector<float>& numbers){
 float min = 9999;
 for (auto i : numbers) {
     if (i < min)
@@ -18,7 +18,7 @@ for (auto i : numbers) {
 return min;
 }
 
-float max(const std::vector<float)& numbers){
+float max(const std::vector<float>& numbers){
 float min = -9999;
 for (auto i : numbers) {
     if (i>max)
