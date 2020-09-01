@@ -1,7 +1,7 @@
 #include <vector>
 
 namespace Statistics {
-    class Stats {
+    struct Stats {
         float min;
         float max;
         float average;
