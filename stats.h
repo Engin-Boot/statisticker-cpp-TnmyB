@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <limits>
 namespace Statistics {
     struct Stats {
         float min;
