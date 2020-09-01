@@ -1,5 +1,32 @@
 #include "stats.h"
 
+
+float avg(const std::vector<float>& numbers) {
+    float sum = 0;
+    for (auto i : numbers) {
+        sum += i;
+    }
+    return sum / numbers.size();
+}
+
+float min(const std::vector<float)& numbers){
+float min = 9999;
+for (auto i : numbers) {
+    if (i < min)
+        min = i;
+}
+return min;
+}
+
+float max(const std::vector<float)& numbers){
+float min = -9999;
+for (auto i : numbers) {
+    if (i>max)
+        max = i;
+}
+return max;
+}
+
 Stats Statistics::ComputeStatistics(const std::vector<float>& numbers) {
     //Implement statistics here
     Stats answers;
@@ -8,29 +35,12 @@ Stats Statistics::ComputeStatistics(const std::vector<float>& numbers) {
         answers.average = NAN;
         answers.min = NAN;
         answers.max = NAN;
+        return answers;
     }
 
-    float sum = 0;
-    float min = numbers[0];
-    float max = numbers[0];
+    answers.average = avg(numbers);
+    answers.min = min(numbers);
+    answers.max = max(numbers);
 
-    for (auto i : numbers) {
-        sum += i;
-
-        if (min > i) {
-            min = i;
-        }
-
-        if (max < i) {
-            max = i;
-        }
-    }
-
-    if (numbers.size() != 0) {
-        answers.min = min;
-        answers.max = max;
-        answers.average = (sum / numbers.size());
-    }
-
-    return answer;
+    return answers;
 }
