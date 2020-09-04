@@ -14,7 +14,7 @@
         for (int i=0;i<size;i++) {
             sum += numbers[i];
         }
-        return sum / size();
+        return sum / size;
     }
 
     float min(const std::vector<float>& numbers){
