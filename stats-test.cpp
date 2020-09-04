@@ -20,4 +20,16 @@ TEST_CASE("average is NaN for empty array") {
     
     //Design the REQUIRE statement here.
     //Use http://www.cplusplus.com/reference/cmath/isnan/
+    REQUIRE(std::isnan(computedStats.average)==true);
+    REQUIRE(std::isnan(computedStats.min)==true);
+    REQUIRE(std::isnan(computedStats.max)==true);
+
+}
+
+TEST_CASE("input containing NaN"){
+    auto computedStats=Statistics::ComputeStatistics({1,2,NAN,3,4});
+    float epsilon=0.01;
+    REQUIRE(std::abs(computedStats.average-2)<epsilon);
+    REQUIRE(std::abs(computedStats.max-4)<epsilon);
+    REQUIRE(std::abs(computedStats.min-1)<epsilon);
 }
