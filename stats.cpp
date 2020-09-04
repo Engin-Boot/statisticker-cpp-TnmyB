@@ -8,12 +8,13 @@
         }
     }
 
-    float avg(const std::vector<float>& numbers,int size) {
+    float sum(const std::vector<float>& numbers) {
         float sum = 0;
+        int size=numbers.size();
         for (int i=0;i<size;i++) {
             sum += numbers[i];
         }
-        return sum / size;
+        return sum;
     }
 
     float min(const std::vector<float>& numbers){
@@ -53,7 +54,7 @@
         
         
         eraseNAN(numbers);
-        answers.average=avg(numbers,size);
+        answers.average=sum(numbers)/size;
         answers.min = min(numbers);
         answers.max = max(numbers);
 
