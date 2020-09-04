@@ -1,23 +1,26 @@
     #include "stats.h"
 
+    void replaceNAN(std::vector<float>& numbers){
+        int size=numbers.size();
+        for (int i=0;i<size;i++) {
+            if(std::isnan(numbers[i]))
+                numbers[i]=0;
+        }
+    }
 
     float avg(const std::vector<float>& numbers) {
         float sum = 0;
         int size=numbers.size();
         for (int i=0;i<size;i++) {
-            if(std::isnan(numbers[i]))
-                continue;
             sum += numbers[i];
         }
-        return sum / numbers.size();
+        return sum / size();
     }
 
     float min(const std::vector<float>& numbers){
     float min = 9999;
     int size=numbers.size();
     for (int i=0;i<size;i++) {
-        if(std::isnan(numbers[i]))
-                continue;
         if (numbers[i] < min)
             min = numbers[i];
     }
@@ -28,8 +31,7 @@
     float max = -9999;
     int size=numbers.size();
     for (int i=0;i<size;i++) {
-        if(std::isnan(numbers[i]))
-                continue;
+       
         if (numbers[i]>max)
             max = numbers[i];
     }
@@ -46,6 +48,8 @@
             answers.max = std::numeric_limits<float>::quiet_NaN();
             return answers;
         }
+        
+        replaceNAN(numbers);
 
         answers.average = avg(numbers);
         answers.min = min(numbers);
