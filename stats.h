@@ -1,5 +1,6 @@
 #include <vector>
 #include <limits>
+#include <cmath>
 namespace Statistics {
     struct Stats {
         float min;
