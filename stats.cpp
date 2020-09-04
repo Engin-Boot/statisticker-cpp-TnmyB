@@ -38,10 +38,11 @@
     return max;
     }
 
-    Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& numbers) {
+    Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& num) {
         //Implement statistics here
         Stats answers;
-
+        std::vector<float> numbers=num;
+        
         if (numbers.size() == 0) {
             answers.average = std::numeric_limits<float>::quiet_NaN();
             answers.min = std::numeric_limits<float>::quiet_NaN();
