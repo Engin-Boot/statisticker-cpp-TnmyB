@@ -5,6 +5,8 @@
         float sum = 0;
         int size=numbers.size();
         for (int i=0;i<size;i++) {
+            if(std::isnan(numbers[i]))
+                continue;
             sum += numbers[i];
         }
         return sum / numbers.size();
@@ -14,6 +16,8 @@
     float min = 9999;
     int size=numbers.size();
     for (int i=0;i<size;i++) {
+        if(std::isnan(numbers[i]))
+                continue;
         if (numbers[i] < min)
             min = numbers[i];
     }
@@ -24,6 +28,8 @@
     float max = -9999;
     int size=numbers.size();
     for (int i=0;i<size;i++) {
+        if(std::isnan(numbers[i]))
+                continue;
         if (numbers[i]>max)
             max = numbers[i];
     }
