@@ -8,7 +8,7 @@
         }
     }
 
-    float avg(const std::vector<float>& numbers,size) {
+    float avg(const std::vector<float>& numbers,int size) {
         float sum = 0;
         for (int i=0;i<size;i++) {
             sum += numbers[i];
