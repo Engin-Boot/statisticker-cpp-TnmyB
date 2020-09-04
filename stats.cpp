@@ -1,16 +1,15 @@
     #include "stats.h"
 
-    void replaceNAN(std::vector<float>& numbers){
+    void eraseNAN(std::vector<float>& numbers){
         int size=numbers.size();
         for (int i=0;i<size;i++) {
             if(std::isnan(numbers[i]))
-                numbers[i]=0;
+                numbers.erase(numbers.begin()+i);
         }
     }
 
-    float avg(const std::vector<float>& numbers) {
+    float avg(const std::vector<float>& numbers,size) {
         float sum = 0;
-        int size=numbers.size();
         for (int i=0;i<size;i++) {
             sum += numbers[i];
         }
@@ -41,6 +40,8 @@
     Statistics::Stats Statistics::ComputeStatistics(const std::vector<float>& num) {
         //Implement statistics here
         Stats answers;
+        int size=num.size();
+        
         std::vector<float> numbers=num;
         
         if (numbers.size() == 0) {
@@ -50,9 +51,9 @@
             return answers;
         }
         
-        replaceNAN(numbers);
-
-        answers.average = avg(numbers);
+        
+        eraseNAN(numbers);
+        answers.average=avg(numbers,size);
         answers.min = min(numbers);
         answers.max = max(numbers);
 
